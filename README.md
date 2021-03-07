@@ -13,13 +13,14 @@ go to **cd /** then **cd vagrant**
 4. run python file **python name.py**
 
 
-reg_service:
-  accept 4 client and return them IPs sequentially 
-clients:
-  connect to reg_service
-  recieve IPs (which are available)
-  send hellow to available IPs
-  wait hellows from clients, that connected after him
+# reg_service:
+  1. accept client (4 times)
+  2. return IPs sequentially 
+# clients:
+  1. connect to reg_service
+  2. recieve IPs (which are available)
+  3. send hellow to available IPs
+  4. wait hellows from clients, that connected after him
   
   
 
