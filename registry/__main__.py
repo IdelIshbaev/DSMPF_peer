@@ -1,3 +1,5 @@
+import logging
+import os
 from collections import defaultdict
 
 from flask import Flask, abort, jsonify, request
@@ -21,10 +23,17 @@ def register_peer(game_id):
     if len(peers) >= NUM_PLAYERS:
         abort(400, f"Maximum number of players {NUM_PLAYERS} is reached")
 
-    peers.append(address)
+    if address not in peers:
+        peers.append(address)
+
+    print(f"Served a client at address {address}, returned {peers}")
 
     return jsonify(peers)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    logging.getLogger("werkzeug").disabled = True
+    os.environ["WERKZEUG_RUN_MAIN"] = "true"
+
+    print("Registry service is now active!")
+    app.run(debug=True, use_reloader=False)

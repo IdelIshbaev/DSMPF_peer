@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 flask = "*"
+celery = "*"
+requests = "*"
 
 [dev-packages]
 black = "*"
