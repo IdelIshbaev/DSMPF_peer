@@ -7,6 +7,7 @@ name = "pypi"
 flask = "*"
 celery = "*"
 requests = "*"
+redis = "*"
 
 [dev-packages]
 black = "*"

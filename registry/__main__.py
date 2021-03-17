@@ -4,7 +4,7 @@ from collections import defaultdict
 
 from flask import Flask, abort, jsonify, request
 
-NUM_PLAYERS = 4
+NUM_PLAYERS = int(os.environ["NUM_PLAYERS"])
 
 app = Flask(__name__)
 addresses = defaultdict(list)
@@ -36,4 +36,4 @@ if __name__ == "__main__":
     os.environ["WERKZEUG_RUN_MAIN"] = "true"
 
     print("Registry service is now active!")
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=True, use_reloader=False, port=5000)
